@@ -1,79 +1,54 @@
-<!-- <div class="card-top container-fluid">
-    <div class="container d-flex">
-        <div class="item">All Products</div>
-        <div class="item">Electronics</div>
-        <div class="item">Fashion</div>
-        <div class="item">Jwellery</div>
-    </div>
-</div> -->
 
 <div class="card text-center">
     <div class="card-header">
       <ul class="nav nav-pills card-header-pills">
-        <li class="nav-item mx-4">
-            <button type="button" class="nav-link active" placement="top" ngbTooltip="All Products">
-                All Products
-              </button>
+        <li class="nav-item mx-4" (click)="filter('')">
+          <button type="button" class="nav-link" [class.active]="selectedCategory === ''" placement="top" ngbTooltip="All Products">
+            All Products
+          </button>
         </li>
-        <li class="nav-item">
-            <button type="button" class="nav-link " placement="top" ngbTooltip="Electronics">
-                Electronics
-            </button>
+        <li class="nav-item" (click)="filter('electronics')">
+          <button type="button" class="nav-link" [class.active]="selectedCategory === 'electronics'" placement="top" ngbTooltip="Electronics">
+            Electronics
+          </button>
         </li>
-        <li class="nav-item">
-            <button type="button" class="nav-link " placement="top" ngbTooltip="Fashion">
-                Fashion
-            </button>
+        <li class="nav-item" (click)="filter('fashion')">
+          <button type="button" class="nav-link" [class.active]="selectedCategory === 'fashion'" placement="top" ngbTooltip="Fashion">
+            Fashion
+          </button>
         </li>
-        <li class="nav-item">
-            <button type="button" class="nav-link " placement="top" ngbTooltip="Jwellery">
-                Jwellery
-            </button>
+        <li class="nav-item" (click)="filter('jewelery')">
+          <button type="button" class="nav-link" [class.active]="selectedCategory === 'jewelery'" placement="top" ngbTooltip="Jewellery">
+            Jewellery
+          </button>
         </li>
       </ul>
     </div>
-    <!-- <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div> -->
-</div>
+  </div>
+  
 
 
-<div class="container my-4">
+  <div class="container my-4">
     <div class="row">
-            <ng-container *ngFor="let post of productList; let i = index">
-                <div class="card col-md-3" #postCard{{i}}>
-            
-                    <div class="card-body d-flex flex-column">  
-                        <h5>{{post.title}}</h5>
-                        <p class="card-text">
-                          {{post.description?.split(" ").slice(0,8).join(" ") + "..."}}  
-                        </p>
-                        
-                        <img 
-                          [src]="post.image" 
-                          class="card-img align-content-center justify-content-center" 
-                          alt="Product Image">
-            
-                        <div class="d-flex justify-content-between mt-3">
-            
-                        <p class="text-success font-weight-bold">${{post.price}}</p>
-            
-                        <button class="btn btn-outline-secondary"> 
-                         Remove Item
-                        </button>
-                       
-                        <button class="btn btn-outline-secondary" (click)=addToCart(post)>
-                            Add to Cart  
-                        </button>
-            
-                        </div>
-                    
-                    </div>
-                    
-                </div> 
-            </ng-container>
-         
-      </div>
-</div>
+      <ng-container *ngFor="let post of filterCategory | filter:searchKey:'title'" aria-hidden="true">
+        <div class="card col-md-4 product-card mb-4 ms-auto rounded-5" style="width: 300px; height: 400px;">
+          <div class="card-body d-flex flex-column">
+            <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{post.title}}</h5>
+            <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{post.description}}</p>
+            <img [src]="post.image" class="card-img-top" alt="Product Image">
+  
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <p class="text-success font-weight-bold">${{ post.price }}</p>
+              <button class="btn btn-outline-secondary" (click)="addToCart(post)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
+  
+  
+  

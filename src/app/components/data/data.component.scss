@@ -1,6 +1,33 @@
 
-.card img {
-    width: 250px;
-    height: 350px;
-   object-fit: cover;
+.product-card {
+  border: none;
+  transition: transform 300ms ease;
+  cursor: pointer; 
+  height: 400px;
+  overflow: hidden; 
+
+}
+
+
+.card-title {
+  font-size: 1.25rem; 
+}
+
+
+.card-img-top {
+  max-width: 45%; 
+  max-height: 45%;
+  margin: auto; 
+  display: block; 
+}
+
+
+.card-text {
+  font-size: 0.9rem; 
+}
+
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.35px 60px -15px rgba(0, 0, 0, 0.3);
 }
