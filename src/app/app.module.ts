@@ -9,6 +9,9 @@ import { DataComponent } from './components/data/data.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterPipe } from './shared/filter.pipe';
+import { LandingpageComponent } from './components/landingpage/landingpage.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { FilterPipe } from './shared/filter.pipe';
     HeaderComponent,
     CartComponent,
     DataComponent,
-    FilterPipe
+    FilterPipe,
+    LandingpageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +29,7 @@ import { FilterPipe } from './shared/filter.pipe';
     HttpClientModule,
     NgbModule,
     FormsModule,
+    NgxSkeletonLoaderModule,
     ReactiveFormsModule
   ],
   providers: [],
