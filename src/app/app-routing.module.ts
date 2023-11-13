@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DataComponent } from './components/data/data.component';
 import { CartComponent } from './components/cart/cart.component';
+import { LandingpageComponent } from './components/landingpage/landingpage.component';
 
 const routes: Routes = [
-  {path:'', redirectTo: 'data', pathMatch:'full' },
+  {path:'', component: LandingpageComponent },
   {path:'data', component:DataComponent},
   {path: 'cart', component:CartComponent}
 ];
