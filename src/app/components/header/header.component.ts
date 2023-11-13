@@ -10,8 +10,12 @@ export class HeaderComponent implements OnInit {
 
   public totalItem : number = 0;
   public searchTerm !: string;
+  isSearchInputVisible: boolean = false;
   constructor(private cartService : CartService) { }
-  
+
+  toggleSearchInput() {
+    this.isSearchInputVisible = !this.isSearchInputVisible;
+  }
   ngOnInit(): void {
     this.cartService.getProduct()
     .subscribe(res=>{
