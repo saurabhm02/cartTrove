@@ -208,6 +208,13 @@ main .card-banner {
 }
 
 
+
+.product .product-image .btn-favourite.is-favourite {
+  background-color: #fb5231;
+  color: #fff;
+  right: 0.71em;
+}
+
 .product-image {
   margin-bottom: 1.25em;
   overflow: hidden;
@@ -215,7 +222,11 @@ main .card-banner {
   background-color: #ebebeb;
 }
 
-.product-image img {
+.product-image a {
+  display: block;
+}
+
+.product-image a img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -223,6 +234,14 @@ main .card-banner {
   transform: scale(1.05);
 }
 
+.product-image a img:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+}
 
 .product-image .product-sale {
   position: absolute;
@@ -236,6 +255,47 @@ main .card-banner {
   background-color: #fb5231;
   padding: 0.41em 0.83em;
 }
+
+.product .product-image .btn-favourite {
+  position: absolute;
+  top: 0.71em;
+  right: -100px;
+  background-color: #fff;
+  font-size: .875em;
+}
+
+.product .product-image .btn-favourite:hover,
+.product .product-image .btn-product-quickview:hover {
+  background-color: #fb5231;
+  color: #fff;
+}
+
+.product .product-image:hover .btn-favourite {
+  right: 0.71em;
+}
+
+
+
+.product .product-image .btn-product-quickview {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  bottom: 0.7142857143em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .75em;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .1em;
+  white-space: nowrap;
+  /* font-size: 16px; */
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.65);
+  background: #fff;
+  transition: all 0s;
+}
+
 
 .product-content .product-name {
   color: #0d0d0d;
@@ -256,12 +316,14 @@ main .card-banner {
 
 /* #f0f0f0 */
 .product-content .ratting {
+  /* float: right; */
   margin: 5px 0;
 }
 
 .product-content .ratting i {
   color: #444444;
   font-size: 14px;
+  /* float: left; */
   margin-right: 4px;
   line-height: 24px;
 }
@@ -330,10 +392,13 @@ main .card-banner {
   background-color: #ff8100;
 }
 
-.product-image:hover  img {
+.product-image:hover a img {
   transform: scale(1);
 }
 
+.product-image:hover a img:last-child {
+  opacity: 1;
+}
 
 .btn-circle {
   min-width: 32px;

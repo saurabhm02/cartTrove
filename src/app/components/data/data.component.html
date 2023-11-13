@@ -154,7 +154,7 @@
   
       <ng-container *ngFor="let product of filterCategory | filter:searchKey:'title'" aria-hidden="true" class="">
           <div class=" col-md-4  mb-4 ms-auto mt-3" style="width: 250px; height: 320px;">
-              <div class="product">
+              <!-- <div class="product">
                 <div class="product-image">
                   <a style="height: 227px;" >
                     <img alt="Product_image" [src]="product.image" style="height: 200px; object-fit: cover;">
@@ -186,7 +186,53 @@
                     </span>
                   </div>
                 </div>
-              </div> 
+              </div>  -->
+
+              <div class="product " style="height: 330px;">
+                <div class="product-image">
+                    <a style="height: 210px;" routerLink="/products/{{product?.id}}">
+                        <img [src]="product?.images[0]" alt="Product_image"
+                            onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
+                        <img [src]="product?.images[1]" alt="Product_image"
+                            onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
+                    </a>
+                    <p class="product-sale" *ngIf="(product?.id)%3==0">Sale</p>
+                    <button type="button" class="btn-favourite btn-circle ">
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="product-content">
+                    <a class="product-name d-flex justify-content-between align-items-center"
+                        routerLink="/products/{{product?.id}}">
+                        <span class="item-title" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{product?.title}}</span>
+                        <span class="badge badge-pill bg-warning p-1">{{product?.category?.name}}</span>
+                    </a>
+            
+                    <ul class="rating-stars">
+                      <li class="stars-active" style="width: 90%;">
+                        <img src="../../../assets/stars-active.svg" alt="">
+                      </li>
+                      <li>
+                        <img src="../../../assets/starts-disable.svg" alt="">
+                      </li>
+                    </ul>
+            
+            
+                    <div class="product-content__footer">
+                        <div class="product-content__footer-price">
+                            <h5 class="product-price">${{product?.price}}</h5>
+                            <span *ngIf="(product?.id)%3==0">$59.99</span>
+                        </div>
+                        <span class="product-atc rounded-circle">
+                          <button type="button" class="btn btn-circle text-muted"
+                          (click)="addToCart(product)">
+                            <i class="fa fa-shopping-cart">
+                            </i>
+                          </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
 
           </div>
       </ng-container>

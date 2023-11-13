@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from 'src/app/service/api.service';
 import { CartService } from 'src/app/service/cart.service';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import * as products from '../../../assets/products.json';
 
 @Component({
   selector: 'app-data',
@@ -13,31 +12,25 @@ export class DataComponent {
   public productList: any;
   public filterCategory: any;
   searchKey: string = '';
-  isLoading: boolean = true; 
+  isLoading: boolean = true;
   fliterValue: string = "Default";
   items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20]
 
-  constructor(private api: ApiService, private CartService: CartService) {}
+  constructor(private CartService: CartService) {}
 
   ngOnInit(): void {
     this.isLoading = true;
 
-    this.api.getProduct()
-      .subscribe((res) => {
-        this.productList = res;
-        this.filterCategory = res;
-        this.productList.forEach((a: any) => {
-          // if (a.category === "men's clothing" || a.category === "women's clothing") {
-          //   a.category = "fashion";
-          // }
-          Object.assign(a, { quantity: 1, total: a.price });
-        });
-        this.isLoading = false; 
-      });
+    // Read data from local JSON file
+    this.productList = (products as any).default;
 
-    this.CartService.search.subscribe((val: any) => {
-      this.searchKey = val;
+    this.filterCategory = this.productList;
+    this.productList.forEach((a: any) => {
+      Object.assign(a, { quantity: 1, total: a.price });
     });
+    this.isLoading = false;
+
+    // Rest of the code remains the same
   }
 
   addToCart(post: any) {
