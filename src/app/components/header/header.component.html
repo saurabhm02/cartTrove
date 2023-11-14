@@ -1,4 +1,4 @@
-
+<!-- 
 <header class="sticky-top bg-white shadow-sm">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -10,80 +10,15 @@
       </button>
       <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <!-- <ul class="nav nav-pills card-header-pills">
-            <li class="nav-item mx-2" (click)="filter('')">             
-              <a class="navl"[class.active]="selectedCategory === 'women'">All Items</a>
-            </li>
-            <li class="nav-item mx-2" (click)="filter('electronics')">
-              <a class="navl" [class.active]="selectedCategory === 'electronics'">Electronics</a>
-            </li>
-            <li class="nav-item mx-2" (click)="filter('men')">
-              <a class="navl" [class.active]="selectedCategory === 'men'">Men's clothing</a>
-                
-            </li>
-            <li class="nav-item mx-2" (click)="filter('women')">
-              <a class="navl" [class.active]="selectedCategory === 'women'">Women's clothing</a>
-                
-            </li>
-            <li class="nav-item mx-2" (click)="filter('jewelery')">
-              <a class="navl" [class.active]="selectedCategory === 'jewelery'">Jewellery</a>
-                
-            </li>
-          </ul> -->
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex ">
-
-            <!-- <a  class="d-none d-lg-inline-block mx-1" (click)="toggleSearchInput()">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
-                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-              </svg>
-            </a>
-            
-            <div *ngIf="isSearchInputVisible" id="searchInputContainer">
-                <div class="input-group">
-                  <input type="search" class="form-control" style="width:55%" placeholder="Search">
-                  <button class="btn btn-warning">
-                      <i class="fa fa-search"></i>
-                  </button>
-              </div>
-            </div> -->
-
-            <!-- <div class="d-flex flex-row justify-content-between">
-              <div *ngIf="isSearchInputVisible" class="">
-                <input
-                  #searchInput
-                  type="search"
-                  class="form-control"
-                  style="width: 100%"
-                  placeholder="Search"
-                />
-              </div>
-              <button class="btn btn-warning mx-n2" (click)="toggleSearchInput()">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-shopping-cart"
-                >
-                  <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-              </button>
-            </div> -->
-            
-
+            <div class="d-flex ">
               <div class="d-flex justify-content-center h-50">
                 <div class="searchbar">
                   <input class="search_input" type="text"  [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search...">
                   <a  class="search_icon"><i class="fas fa-search"></i></a>
-                  <!-- <button class="search_icon" type="submit"><i class="fas fa-search"></i></button> -->
+
                 </div>
               </div>
             </div>
@@ -93,17 +28,52 @@
             <div routerLink="cart" class="d-none d-lg-block mx-4">
               <i class="fas fa-shopping-bag fa-2x"></i>
               <div class="badge bg-danger" style="font-size: 10px;">{{totalItem}}</div>
-          </div>
+            </div>
 
             <a href="#" class="btn btn-sm btn-outline-primary">Sign in</a>
             <span class="mx-2"></span>
             <a href="#" class="btn btn-sm btn-primary mx-2">Create account</a>
-          </div>
-
-          
         </div>
 
+          
       </div>
+
+    </div>
   </nav>
   
-</header>
+</header> -->
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top bg-white shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand mx-4" routerLink="">
+      <img src="../../../assets/logo.png" alt=""  height="40" class="d-inline-block align-text-top" style="object-fit: contain; cursor: pointer;">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      
+      <div class="d-flex ms-auto justify-content-between align-items-center navbar-nav  my-2 my-lg-0 navbar-nav-scroll" role="search">
+        <div class="d-flex nav-item ">
+          <div class="d-flex justify-content-center h-50">
+            <div class="searchbar">
+              <input class="search_input" type="text"  [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search...">
+              <a  class="search_icon"><i class="fas fa-search" style="cursor: pointer;"></i></a>
+
+            </div>
+          </div>
+        </div>
+
+        <div routerLink="cart" class="d-none d-lg-block mx-4 nav-item" >
+          <i class="fas fa-shopping-bag fa-2x" style="cursor: pointer;"></i>
+          <div class="badge bg-danger" style="font-size: 10px;">{{totalItem}}</div>
+        </div>
+
+        <a href="#" class="btn btn-sm btn-outline-primary nav-item">Sign in</a>
+        <span class="mx-2"></span>
+        <a href="#" class="btn btn-sm btn-primary mx-2 nav-item">Create account</a>
+    </div>
+    </div>
+  </div>
+</nav>
