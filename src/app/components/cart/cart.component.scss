@@ -48,3 +48,89 @@ h6 {
     padding: 12px 72px;
     border-radius: 3px !important;
 }
+
+@media (max-width: 768px) {
+    .table-responsive {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .table-responsive table {
+      width: auto;
+      margin-top: 0;
+      padding: 0;
+    }
+  
+    .table-responsive .thead th,
+    .table-responsive .tbody td,
+    .table-responsive .tfoot th {
+      white-space: nowrap;
+      display: table-cell;
+      text-align: left;
+    }
+  
+    .table-responsive .thead th:first-child,
+    .table-responsive .tbody td:first-child,
+    .table-responsive .tfoot th:first-child {
+      width: 50px;
+    }
+}
+// @media (max-width: 500px) {
+
+//     .table-responsive {
+//       display: block;
+//       width: 100%;
+//       overflow-x: auto;
+//       -ms-overflow-style: none;
+//       -webkit-overflow-scrolling: touch;
+//     }
+  
+//     .table-responsive table {
+//       width: auto;
+//       margin-top: 0;
+//       padding: 0;
+//     }
+  
+//     .table-responsive .thead th,
+//     .table-responsive .tbody td,
+//     .table-responsive .tfoot th {
+//       white-space: nowrap;
+//       display: table-cell;
+//       text-align: left;
+//     }
+  
+//     .table-responsive .thead th:first-child,
+//     .table-responsive .tbody td:first-child,
+//     .table-responsive .tfoot th:first-child {
+//       width: 50px;
+//     }
+  
+// }
+
+@media (max-width: 500px) {
+    /* Adjust table layout */
+    .table {
+      width: 100%; /* Ensure table fills the available screen width */
+    }
+  
+    .table-responsive {
+      overflow-x: hidden; /* Disable horizontal scrolling for smaller screens */
+    }
+  
+    /* Adjust image width */
+    img {
+      max-width: 100%; /* Scale images proportionally to fit the container */
+      height: auto; /* Maintain image aspect ratio */
+    }
+  
+    /* Adjust 'Shop Now' button position */
+    .shop-now {
+      margin: 0 auto; /* Center the button on smaller screens */
+      display: block; /* Make the button visible on smaller screens */
+    }
+  }
+  
+  
