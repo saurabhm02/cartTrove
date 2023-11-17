@@ -104,10 +104,6 @@ export class HeaderComponent implements OnInit {
 
   constructor(private cartService: CartService) { }
 
-  toggleSearchInput() {
-    // Toggle your search input visibility logic here if needed
-  }
-
   ngOnInit(): void {
     this.cartService.getProduct()
       .subscribe(res => {
@@ -122,11 +118,7 @@ export class HeaderComponent implements OnInit {
   search(event: any) {
     this.searchTerm = (event.target as HTMLInputElement).value;
     console.log('Search Term:', this.searchTerm);
-    
-    // Update the searchTerm in the cart service
     this.cartService.search.next(this.searchTerm);
-
-    // Call the filterProducts method in the cart service
     this.cartService.filterProducts(this.searchTerm);
   }
 }

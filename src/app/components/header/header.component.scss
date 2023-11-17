@@ -7,13 +7,13 @@
   transition: all 0.2s ease-in-out;
 }
 
-/* Hover state */
+
 .navl:hover {
   color: #007bff;
-  cursor: pointer; /* Set cursor to pointer on hover */
+  cursor: pointer; 
 }
 
-/* Active state */
+
 .navl.active {
   color: #007bff;
 }

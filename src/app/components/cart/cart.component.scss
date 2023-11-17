@@ -111,25 +111,25 @@ h6 {
 // }
 
 @media (max-width: 500px) {
-    /* Adjust table layout */
+
     .table {
-      width: 100%; /* Ensure table fills the available screen width */
+      width: 100%; 
     }
   
     .table-responsive {
-      overflow-x: hidden; /* Disable horizontal scrolling for smaller screens */
+      overflow-x: hidden; 
     }
   
-    /* Adjust image width */
+
     img {
-      max-width: 100%; /* Scale images proportionally to fit the container */
-      height: auto; /* Maintain image aspect ratio */
+      max-width: 100%; 
+      height: auto;
     }
   
-    /* Adjust 'Shop Now' button position */
+
     .shop-now {
-      margin: 0 auto; /* Center the button on smaller screens */
-      display: block; /* Make the button visible on smaller screens */
+      margin: 0 auto; 
+      display: block; 
     }
   }
   
