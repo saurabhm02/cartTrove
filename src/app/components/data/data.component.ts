@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
 import * as products from '../../../assets/products.json';
-import { ToastrService } from 'ngx-toastr';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-data',
@@ -17,7 +17,7 @@ export class DataComponent {
   fliterValue: string = "Default";
   items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20]
 
-  constructor(private CartService: CartService, private toastr: ToastrService) {}
+  constructor(private CartService: CartService, private _toast: HotToastService) {}
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -32,12 +32,13 @@ export class DataComponent {
 
   addToCart(post: any) {
     this.CartService.addToCart(post);
-    this.toastr.success(`${post.title} added to cart successfully`, 'Success');
+    this._toast.success(`${post.title} added to cart successfully`,
+      {
+        position: 'top-left'
+      });
   }
 
-  showToaster(){
-    this.toastr.success("Hello, I'm the toastr message.")
-}
+  
   filter(category: string) {
     this.selectedCategory = category;
     this.filterCategory = this.productList.filter((a: any) => {
