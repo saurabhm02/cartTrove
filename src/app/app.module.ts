@@ -13,7 +13,9 @@ import { LandingpageComponent } from './components/landingpage/landingpage.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { HotToastModule } from '@ngneat/hot-toast';
+import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
+import { CompleteOrderComponent } from './components/complete-order/complete-order.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ToastrModule } from 'ngx-toastr';
     DataComponent,
     FilterPipe,
     LandingpageComponent,
-    FooterComponent
+    FooterComponent,
+    CheckoutPageComponent,
+    CompleteOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,7 @@ import { ToastrModule } from 'ngx-toastr';
     NgxSkeletonLoaderModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    HotToastModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

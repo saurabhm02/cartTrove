@@ -189,6 +189,10 @@ export class CartService {
     });
     return grandTotal;
   }
+  
+  updateCart(cartItems: any[]) {
+    this.cartItemList = [...cartItems];
+  }
 
   removeCartItem(product: any) {
     const index = this.cartItemList.findIndex((a: any) => product.id === a.id);
